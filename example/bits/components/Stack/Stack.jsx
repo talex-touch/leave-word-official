@@ -24,13 +24,13 @@ function CardRotate({ children, onSendToBack, sensitivity }) {
 
   return (
     <motion.div
-      className="absolute cursor-grab"
-      style={{ x, y, rotateX, rotateY }}
+      className="card-rotate"
       drag
-      dragConstraints={{ top: 0, right: 0, bottom: 0, left: 0 }}
+      dragConstraints={{ bottom: 0, left: 0, right: 0, top: 0 }}
       dragElastic={0.6}
-      whileTap={{ cursor: 'grabbing' }}
       onDragEnd={handleDragEnd}
+      style={{ cursor: 'grab', position: 'absolute', rotateX, rotateY, x, y }}
+      whileTap={{ cursor: 'grabbing' }}
     >
       {children}
     </motion.div>
@@ -40,13 +40,14 @@ function CardRotate({ children, onSendToBack, sensitivity }) {
 export default function Stack({
   randomRotation = false,
   sensitivity = 200,
-  cardDimensions = { width: 208, height: 208 },
+  cardDimensions = { height: 208, width: 208 },
   cardsData = [],
-  animationConfig = { stiffness: 260, damping: 20 },
+  animationConfig = { damping: 20, stiffness: 260 },
   sendToBackOnClick = false,
 }) {
+
   const [cards, setCards] = useState(
-    cardsData.length
+    cardsData.length > 0
       ? cardsData
       : [
           {
@@ -80,11 +81,12 @@ export default function Stack({
 
   return (
     <div
-      className="relative"
+      className="stack-container"
       style={{
-        width: cardDimensions.width,
         height: cardDimensions.height,
         perspective: 600,
+        position: 'relative',
+        width: cardDimensions.width,
       }}
     >
       {cards.map((card, index) => {
@@ -99,25 +101,28 @@ export default function Stack({
             sensitivity={sensitivity}
           >
             <motion.div
-              className="absolute w-full h-full rounded-lg overflow-hidden"
-              onClick={() => sendToBackOnClick && sendToBack(card.id)}
               animate={{
                 rotateZ: (cards.length - index - 1) * 4 + randomRotate,
                 scale: 1 + index * 0.06 - cards.length * 0.06,
                 transformOrigin: '90% 90%',
               }}
+              className="card"
               initial={false}
-              transition={{
-                type: 'spring',
-                stiffness: animationConfig.stiffness,
-                damping: animationConfig.damping,
-              }}
+              onClick={() => sendToBackOnClick && sendToBack(card.id)}
               style={{
-                width: cardDimensions.width,
-                height: cardDimensions.height,
+                borderRadius: '2rem',
+                height: cardDimensions.height ?? '100%',
+                overflow: 'hidden',
+                position: 'absolute',
+                width: cardDimensions.width ?? '100%',
+              }}
+              transition={{
+                damping: animationConfig.damping,
+                stiffness: animationConfig.stiffness,
+                type: 'spring',
               }}
             >
-              <img src={card.img} alt={`card-${card.id}`} className="w-full h-full object-cover" />
+              <img alt={`card-${card.id}`} className="card-image" src={card.img} style={{ height: '100%', objectFit: 'cover', width: '100%'}} />
             </motion.div>
           </CardRotate>
         );

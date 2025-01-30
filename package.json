@@ -74,6 +74,7 @@
     "@floating-ui/react": "^0.27.3",
     "@giscus/react": "^3.1.0",
     "@lobehub/ui": "^1.163.0",
+    "@react-spring/web": "^9.7.5",
     "ahooks": "^3.8.4",
     "animated-scroll-to": "^2.3.0",
     "antd-style": "^3.7.1",
