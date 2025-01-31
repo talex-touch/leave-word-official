@@ -58,7 +58,7 @@ export default defineConfig({
   ],
   mfsu: isWin ? undefined : {},
   npmClient: 'pnpm',
-  ssr: isProduction ? {} : false,
+  ssr: /* isProduction ? {} :  */false,
   styles: [
     `html, body { background: transparent;  }
 
