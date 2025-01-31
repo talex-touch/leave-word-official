@@ -2,7 +2,7 @@ import { Layout, LayoutHeader, LayoutToc } from '@lobehub/ui';
 import { createStyles, useResponsive, useTheme } from 'antd-style';
 import { Helmet, useIntl, useLocation } from 'dumi';
 import isEqual from 'fast-deep-equal';
-import { memo, useCallback, useEffect, useMemo, type ReactNode } from 'react';
+import { type ReactNode, memo, useCallback, useEffect, useMemo } from 'react';
 
 import Changelog from '@/pages/Changelog';
 import Docs from '@/pages/Docs';
@@ -38,7 +38,7 @@ const useStyles = createStyles(({ css, stylish, token, responsive, prefixCls }) 
 
 const DocumentLayout = memo(() => {
   const { styles } = useStyles();
-  
+
   const intl = useIntl();
   const { hash } = useLocation();
   const theme = useTheme();
@@ -117,16 +117,23 @@ const DocumentLayout = memo(() => {
           <Header />
           {toc && <LayoutToc>{toc}</LayoutToc>}
         </LayoutHeader>
-      )
+      );
+    }
+
+    if (page !== 'home') {
+      return (
+        <LayoutHeader headerHeight={theme.headerHeight}>
+          <Header />
+        </LayoutHeader>
+      );
     }
 
     return (
       <LayoutHeader className={styles.wholeHeader} headerHeight={0}>
         <Header />
-        {/* {toc && <LayoutToc>{toc}</LayoutToc>} */}
       </LayoutHeader>
-    )
-  })
+    );
+  });
 
   return (
     <>
