@@ -292,7 +292,7 @@ export default () => {
       <Divider />
       <div className={styles.container}>
         <h2>LeafTalk</h2>
-        <p className="layoutkit-flexbox css-o3n4io acss-pl6lf1 max-w-[800px] opacity-60">
+        <p>
           Activate your lexical AI companion anywhere, toggle memory contexts via neural interface,
           and flow through unbounded vocabulary conversations.
         </p>

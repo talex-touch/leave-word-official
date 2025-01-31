@@ -7,3 +7,5 @@ hero:
 <code src="./index.zh-CN.tsx" inline></code>
 
 <code src="./index.zh-CN.feature.tsx" inline></code>
+
+<code src="./index.zh-CN.ui.tsx" inline></code>

@@ -291,9 +291,7 @@ export default () => {
     <>
       <div className={styles.container}>
         <h2>词间蔓生</h2>
-        <p className="layoutkit-flexbox css-o3n4io acss-pl6lf1 max-w-[800px] opacity-60">
-          随时唤醒你的AI词库伙伴，直觉界面智能切换记忆场景，构建无界单词对话流
-        </p>
+        <p>随时唤醒你的AI词库伙伴，直觉界面智能切换记忆场景，构建无界单词对话流</p>
       </div>
       <SpotlightCard items={data} renderItem={render} />
 
