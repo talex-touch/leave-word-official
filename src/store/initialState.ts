@@ -48,9 +48,9 @@ export const initialThemeConfig: Partial<SiteThemeConfig> = {
   footer: 'Made with ♥ by <a href="https://quotawish.com" target="_blank">QuotaWish</a>',
   metadata: {
     icons: {
-      apple: 'https://lobehub.com/apple-touch-icon.png',
-      icon: 'https://lobehub.com/favicon-32x32.png',
-      shortcut: 'https://lobehub.com/favicon.ico',
+      apple: 'https://img2.quotawish.com/2025/01/30/679b19339ef02.png',
+      icon: 'https://img2.quotawish.com/2025/01/30/679b19339ef02.png',
+      shortcut: 'https://img2.quotawish.com/2025/01/30/679b19334f760.ico',
     },
     openGraph: {
       siteName: 'LobeHub',
