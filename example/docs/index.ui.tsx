@@ -1,5 +1,5 @@
-import { Image, SpotlightCard } from '@lobehub/ui';
-import { Button, Divider } from 'antd';
+import { SpotlightCard } from '@lobehub/ui';
+import { Divider } from 'antd';
 import { createStyles } from 'antd-style';
 import React from 'react';
 import { Flexbox } from 'react-layout-kit';

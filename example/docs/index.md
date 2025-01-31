@@ -15,3 +15,5 @@ hero:
 <code src="./index.feature.tsx" inline></code>
 
 <code src="./index.ui.tsx" inline></code>
+
+<code src="./index.download.tsx" inline></code>
